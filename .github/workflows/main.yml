@@ -32,6 +32,8 @@ jobs:
         uses: actions/download-artifact@v5.0.0
         with:
           name: quiz-backend-jar
+      - name: List downloaded files
+        run: if [ -f quiz-backend-jar/quiz-backend.jar ]; then echo "File exists"; else echo "File does not exist"; exit 1; fi
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
