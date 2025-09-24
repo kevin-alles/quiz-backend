@@ -27,7 +27,7 @@ public class ReachableIntegrationTest {
         ).andExpect(
                 MockMvcResultMatchers.status().isOk()
         ).andExpect(
-                MockMvcResultMatchers.content().string("Backend is reachable")
+                MockMvcResultMatchers.content().string("Backend is reachable!")
         );
     }
 }
