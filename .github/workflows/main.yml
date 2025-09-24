@@ -32,8 +32,8 @@ jobs:
         uses: actions/download-artifact@v5.0.0
         with:
           name: quiz-backend-jar
-      - name: unzip articat file
-        run: unzip quiz-backend-jar.zip
+      - name: List directory file
+        run: ls -R
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
