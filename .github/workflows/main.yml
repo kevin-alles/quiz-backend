@@ -32,5 +32,6 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: quiz-backend-jar/*.jar
+          tag_name: latest
         env:
           GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
