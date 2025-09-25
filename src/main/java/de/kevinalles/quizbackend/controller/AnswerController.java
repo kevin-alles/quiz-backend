@@ -15,7 +15,7 @@ public class AnswerController {
         return "Answer details";
     }
 
-    @GetMapping("/answers/question/{questionID}")
+    @GetMapping("/answers/questions/{questionID}")
     public String getAnswersByQuestionId(@PathVariable Long questionID) {
         log.info("Fetching answers for question ID '" + questionID + "'");
         return "List of answers for the question";
