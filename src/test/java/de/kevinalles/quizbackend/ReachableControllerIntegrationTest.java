@@ -13,7 +13,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 @SpringBootTest
 @ExtendWith(SpringExtension.class)
 @AutoConfigureMockMvc
-public class ReachableIntegrationTest {
+public class ReachableControllerIntegrationTest {
     @Autowired
     private MockMvc mockMvc;
 
