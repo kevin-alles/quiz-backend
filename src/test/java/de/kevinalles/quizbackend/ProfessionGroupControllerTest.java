@@ -13,29 +13,18 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 @SpringBootTest
 @ExtendWith(SpringExtension.class)
 @AutoConfigureMockMvc
-public class AnswerControllerIntegrationTests {
+public class ProfessionGroupControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
     @Test
-    public void testGetAnswerById() throws Exception {
+    public void testGetAllProfessionGroups() throws Exception {
         mockMvc.perform(
-                MockMvcRequestBuilders.get("/answers/1")
+                MockMvcRequestBuilders.get("/profession-groups")
         ).andExpect(
                 MockMvcResultMatchers.status().isOk()
         ).andExpect(
-                MockMvcResultMatchers.content().string("Answer details")
-        );
-    }
-
-    @Test
-    public void testGetAnswersByQuestionId() throws Exception {
-        mockMvc.perform(
-                MockMvcRequestBuilders.get("/answers/questions/1")
-        ).andExpect(
-                MockMvcResultMatchers.status().isOk()
-        ).andExpect(
-                MockMvcResultMatchers.content().string("List of answers for the question")
+                MockMvcResultMatchers.content().string("List of all profession groups")
         );
     }
 }
