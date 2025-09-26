@@ -31,7 +31,7 @@ public class AnswerControllerIntegrationTests {
     @Test
     public void testGetAnswersByQuestionId() throws Exception {
         mockMvc.perform(
-                MockMvcRequestBuilders.get("/answers/question/1")
+                MockMvcRequestBuilders.get("/answers/questions/1")
         ).andExpect(
                 MockMvcResultMatchers.status().isOk()
         ).andExpect(

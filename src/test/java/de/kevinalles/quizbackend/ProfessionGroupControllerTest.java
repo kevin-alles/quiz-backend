@@ -13,21 +13,18 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 @SpringBootTest
 @ExtendWith(SpringExtension.class)
 @AutoConfigureMockMvc
-public class ReachableControllerIntegrationTest {
+public class ProfessionGroupControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
     @Test
-    public void testReachableEndpoint() throws Exception {
-        // This test will pass if the application context loads successfully,
-        // indicating that the /reachable endpoint is available.
-
+    public void testGetAllProfessionGroups() throws Exception {
         mockMvc.perform(
-                MockMvcRequestBuilders.post("/reachable")
+                MockMvcRequestBuilders.get("/profession-groups")
         ).andExpect(
                 MockMvcResultMatchers.status().isOk()
         ).andExpect(
-                MockMvcResultMatchers.content().string("Backend is reachable")
+                MockMvcResultMatchers.content().string("List of all profession groups")
         );
     }
 }

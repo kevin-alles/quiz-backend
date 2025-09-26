@@ -13,21 +13,33 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 @SpringBootTest
 @ExtendWith(SpringExtension.class)
 @AutoConfigureMockMvc
-public class ReachableControllerIntegrationTest {
+public class StatisticControllerIntegrationTests {
+
     @Autowired
     private MockMvc mockMvc;
 
     @Test
-    public void testReachableEndpoint() throws Exception {
-        // This test will pass if the application context loads successfully,
-        // indicating that the /reachable endpoint is available.
-
+    public void testAddStatistics() throws Exception {
         mockMvc.perform(
-                MockMvcRequestBuilders.post("/reachable")
+                MockMvcRequestBuilders.put("/statistics/1")
+                        .param("professionGroupID", "1")
+                        .param("answerID", "1")
         ).andExpect(
                 MockMvcResultMatchers.status().isOk()
         ).andExpect(
-                MockMvcResultMatchers.content().string("Backend is reachable")
+                MockMvcResultMatchers.content().string("Statistics added")
         );
     }
+
+    @Test
+    public void testGetStatisticsByQuestionId() throws Exception {
+        mockMvc.perform(
+                MockMvcRequestBuilders.get("/statistics/1")
+        ).andExpect(
+                MockMvcResultMatchers.status().isOk()
+        ).andExpect(
+                MockMvcResultMatchers.content().string("Statistics details")
+        );
+    }
+
 }
